@@ -1,5 +1,13 @@
+import Home from "./pages/home";
+
 function App() {
-  return <>hello this is tracker app</>;
+  return (
+    <>
+      <header>Header</header>
+      <Home />
+      <footer>Footer</footer>
+    </>
+  );
 }
 
 export default App;
