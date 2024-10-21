@@ -1,8 +1,11 @@
+import ExpenseList from "../../components/ExpenseList";
+import Topfold from "../../components/Topfold";
+
 const Home = () => {
   return (
     <>
-      <div>Top Fold</div>
-      <div>ExpenseList</div>
+      <Topfold />
+      <ExpenseList />
     </>
   );
 };
