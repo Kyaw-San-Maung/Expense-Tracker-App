@@ -1,12 +1,14 @@
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import Home from "./pages/home";
 
 function App() {
   return (
-    <>
-      <header className="font-serif">Header</header>
+    <div className="font-serif">
+      <Header />
       <Home />
-      <footer>Footer</footer>
-    </>
+      <Footer />
+    </div>
   );
 }
 
