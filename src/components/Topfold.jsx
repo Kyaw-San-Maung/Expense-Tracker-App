@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Topfold = () => {
   const [query, setQuery] = useState("");
@@ -31,23 +32,29 @@ const Topfold = () => {
             />
           </div>
           <div>
-            <button className="pl-2 pr-2 pt-1 pb-1 rounded-md border-black border-2 shadow-lg">
-              <FontAwesomeIcon icon={faAdd} className="ml-1 mr-1" />
-              Add New
-            </button>
+            <Link to="/add-expense">
+              <button className="pl-2 pr-2 pt-1 pb-1 rounded-md border-black border-2 shadow-lg">
+                <FontAwesomeIcon icon={faAdd} className="ml-1 mr-1" />
+                Add New
+              </button>
+            </Link>
           </div>
         </>
       ) : (
         <>
-          <button>
-            <FontAwesomeIcon icon={faChevronLeft} className="ml-2 mr-2" />
-            Back
-          </button>
+          <Link to="/">
+            <button>
+              <FontAwesomeIcon icon={faChevronLeft} className="ml-2 mr-2" />
+              Back
+            </button>
+          </Link>
 
-          <button>
-            <FontAwesomeIcon icon={faRemove} className="ml-2 mr-2" />
-            Cancel
-          </button>
+          <Link to="/">
+            <button>
+              <FontAwesomeIcon icon={faRemove} className="ml-2 mr-2" />
+              Cancel
+            </button>
+          </Link>
         </>
       )}
     </div>
