@@ -1,4 +1,10 @@
-import { faAdd, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAdd,
+  faChevronLeft,
+  faLeftLong,
+  faRemove,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
@@ -34,7 +40,15 @@ const Topfold = () => {
         </>
       ) : (
         <>
-          <div>Other Topfold</div>
+          <button>
+            <FontAwesomeIcon icon={faChevronLeft} className="ml-2 mr-2" />
+            Back
+          </button>
+
+          <button>
+            <FontAwesomeIcon icon={faRemove} className="ml-2 mr-2" />
+            Cancel
+          </button>
         </>
       )}
     </div>
