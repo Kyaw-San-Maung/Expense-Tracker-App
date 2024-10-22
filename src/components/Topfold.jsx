@@ -1,7 +1,6 @@
 import {
   faAdd,
   faChevronLeft,
-  faLeftLong,
   faRemove,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
