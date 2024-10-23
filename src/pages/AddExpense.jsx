@@ -1,3 +1,4 @@
+import AddForm from "../components/AddForm";
 import Topfold from "../components/Topfold";
 
 const AddExpense = () => {
@@ -5,9 +6,7 @@ const AddExpense = () => {
     <>
       <Topfold />
 
-      <div className="m-auto w-1/2 mt-3">
-        <h2>Hello this is what it is</h2>
-      </div>
+      <AddForm />
     </>
   );
 };
