@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 const ExpenseList = () => {
   const list = [
     {
@@ -19,7 +21,7 @@ const ExpenseList = () => {
         {list.length ? (
           list.map((item) => (
             <>
-              <h3>{item.title}</h3>
+              <Card item={item} />
             </>
           ))
         ) : (
