@@ -6,14 +6,39 @@ import {
   DropdownTrigger,
   Input,
 } from "@nextui-org/react";
+import { useState } from "react";
 
 const AddForm = () => {
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState("");
+  const [type, setType] = useState();
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleAmount = (e) => {
+    setAmount(e.target.value);
+  };
+
   return (
     <div className="m-auto w-1/2 mt-3">
       <div className="p-4 mt-6 border">
-        <Input size="sm" label="Title" className="mb-3" />
+        <Input
+          size="sm"
+          label="Title"
+          value={title}
+          className="mb-3"
+          onChange={(e) => handleTitle(e)}
+        />
 
-        <Input size="sm" label="Amount" className="mb-3" />
+        <Input
+          size="sm"
+          label="Amount"
+          value={amount}
+          className="mb-3"
+          onChange={(e) => handleAmount(e)}
+        />
         <Dropdown>
           <DropdownTrigger>
             <Button variant="bordered">Type</Button>
