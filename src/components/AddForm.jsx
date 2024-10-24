@@ -18,7 +18,13 @@ const AddForm = () => {
   };
 
   const handleAmount = (e) => {
-    setAmount(e.target.value);
+    const val = parseFloat(e.target.value);
+
+    if (isNaN(val)) {
+      setAmount("");
+      return;
+    }
+    setAmount(val);
   };
 
   return (
