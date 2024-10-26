@@ -1,4 +1,10 @@
 import {
+  faBurger,
+  faCartShopping,
+  faPeopleGroup,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
   Button,
   Dropdown,
   DropdownItem,
@@ -50,9 +56,28 @@ const AddForm = () => {
             <Button variant="bordered">Type</Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Static Actions">
-            <DropdownItem key="new">F&B</DropdownItem>
-            <DropdownItem key="copy">Shopping</DropdownItem>
-            <DropdownItem key="edit">Family & Friends</DropdownItem>
+            <DropdownItem key="new">
+              <div className="flex justify-between">
+                <p>F&B</p> <FontAwesomeIcon id="F&B" icon={faBurger} />
+              </div>
+            </DropdownItem>
+            <DropdownItem key="copy">
+              <div className="flex justify-between">
+                {" "}
+                Shopping{" "}
+                <FontAwesomeIcon id="shopping-cart" icon={faCartShopping} />
+              </div>
+            </DropdownItem>
+            <DropdownItem key="edit">
+              <div className="flex justify-between">
+                {" "}
+                Family & Friends{" "}
+                <FontAwesomeIcon
+                  id="family & friends"
+                  icon={faPeopleGroup}
+                />{" "}
+              </div>
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>
