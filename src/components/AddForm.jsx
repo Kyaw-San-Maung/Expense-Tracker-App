@@ -33,6 +33,23 @@ const AddForm = () => {
     setAmount(val);
   };
 
+  const handleSelectType = (key) => {
+    switch (key) {
+      case "F&B":
+        setType("F&B");
+        break;
+      case "Shopping":
+        setType("Shopping");
+        break;
+      case "Family & Friend":
+        setType("Family & Friend");
+        break;
+      default:
+        setType("");
+        break;
+    }
+  };
+
   return (
     <div className="m-auto w-1/2 mt-3">
       <div className="p-4 mt-6 border">
@@ -53,22 +70,22 @@ const AddForm = () => {
         />
         <Dropdown>
           <DropdownTrigger>
-            <Button variant="bordered">Type</Button>
+            <Button variant="bordered">{type || "Select Type"}</Button>
           </DropdownTrigger>
-          <DropdownMenu aria-label="Static Actions">
-            <DropdownItem key="new">
+          <DropdownMenu aria-label="Static Actions" onAction={handleSelectType}>
+            <DropdownItem key="F&B">
               <div className="flex justify-between">
                 <p>F&B</p> <FontAwesomeIcon id="F&B" icon={faBurger} />
               </div>
             </DropdownItem>
-            <DropdownItem key="copy">
+            <DropdownItem key="Shopping">
               <div className="flex justify-between">
                 {" "}
                 Shopping{" "}
                 <FontAwesomeIcon id="shopping-cart" icon={faCartShopping} />
               </div>
             </DropdownItem>
-            <DropdownItem key="edit">
+            <DropdownItem key="Family & Friend">
               <div className="flex justify-between">
                 {" "}
                 Family & Friends{" "}
@@ -80,6 +97,12 @@ const AddForm = () => {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+
+        {type && (
+          <div className="mt-4 p-2 border rounded">
+            Selected Type: <strong>{type}</strong>
+          </div>
+        )}
       </div>
     </div>
   );
