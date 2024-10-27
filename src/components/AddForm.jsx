@@ -115,7 +115,11 @@ const AddForm = () => {
           </DropdownMenu>
         </Dropdown>
         <br />
-        <Button color="default" variant="ghost" onClick={handleSubmit}>
+        <Button
+          color="default"
+          variant="ghost"
+          onClick={handleSubmit}
+          className="mt-4">
           Add
         </Button>
       </div>
