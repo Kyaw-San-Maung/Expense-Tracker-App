@@ -15,6 +15,8 @@ import {
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../redux/actions/expenses";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddForm = () => {
   const [title, setTitle] = useState("");
@@ -54,8 +56,9 @@ const AddForm = () => {
   };
 
   const handleSubmit = () => {
-    if (title == "" || amount == "" || type == "") {
-      console.log("No Data");
+    if (title == "" || amount == "" || type) {
+      const notify = () => toast("Please fill the data!");
+      notify();
       return;
     }
     const data = {
@@ -69,6 +72,12 @@ const AddForm = () => {
 
   return (
     <div className="m-auto w-1/2 mt-3">
+      <ToastContainer
+        closeOnClick
+        position="bottom-left"
+        autoClose={1500}
+        pauseOnHover={false}
+      />
       <div className="p-4 mt-6 border">
         <Input
           size="sm"
