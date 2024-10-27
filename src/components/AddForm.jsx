@@ -13,11 +13,14 @@ import {
   Input,
 } from "@nextui-org/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addExpense } from "../redux/actions/expenses";
 
 const AddForm = () => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState();
+  const dispatch = useDispatch();
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -48,6 +51,20 @@ const AddForm = () => {
         setType("");
         break;
     }
+  };
+
+  const handleSubmit = () => {
+    if (title == "" || amount == "" || type == "") {
+      console.log("No Data");
+      return;
+    }
+    const data = {
+      title,
+      amount,
+      type,
+    };
+
+    return dispatch(addExpense(data));
   };
 
   return (
@@ -97,12 +114,10 @@ const AddForm = () => {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-
-        {type && (
-          <div className="mt-4 p-2 border rounded">
-            Selected Type: <strong>{type}</strong>
-          </div>
-        )}
+        <br />
+        <Button color="default" variant="ghost" onClick={handleSubmit}>
+          Add
+        </Button>
       </div>
     </div>
   );
