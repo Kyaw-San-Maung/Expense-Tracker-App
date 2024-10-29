@@ -1,3 +1,5 @@
+import { faSign } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "react-modal";
 
 const Successmodal = () => {
@@ -12,7 +14,12 @@ const Successmodal = () => {
     },
   };
 
-  return <Modal></Modal>;
+  return (
+    <Modal isOpen={true} style={customStyles} contentLabel="Example Modal">
+      <FontAwesomeIcon icon={faSign} size="xl" />
+      <h3>Your expense is successfully add in the Expense List.</h3>
+    </Modal>
+  );
 };
 
 export default Successmodal;

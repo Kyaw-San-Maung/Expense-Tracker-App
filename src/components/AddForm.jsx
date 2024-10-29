@@ -17,11 +17,13 @@ import { useDispatch } from "react-redux";
 import { addExpense } from "../redux/actions/expenses";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Successmodal from "./Success-modal";
 
 const AddForm = () => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleTitle = (e) => {
@@ -66,12 +68,13 @@ const AddForm = () => {
       amount,
       type,
     };
-
-    return dispatch(addExpense(data));
+    setModalOpen(true);
+    dispatch(addExpense(data));
   };
 
   return (
     <div className="m-auto w-1/2 mt-3">
+      <Successmodal />
       <ToastContainer
         closeOnClick
         position="bottom-left"
@@ -94,35 +97,46 @@ const AddForm = () => {
           className="mb-3"
           onChange={(e) => handleAmount(e)}
         />
-        <Dropdown>
-          <DropdownTrigger>
-            <Button variant="bordered">{type || "Select Type"}</Button>
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Static Actions" onAction={handleSelectType}>
-            <DropdownItem key="F&B">
-              <div className="flex justify-between">
-                <p>F&B</p> <FontAwesomeIcon id="F&B" icon={faBurger} />
-              </div>
-            </DropdownItem>
-            <DropdownItem key="Shopping">
-              <div className="flex justify-between">
-                {" "}
-                Shopping{" "}
-                <FontAwesomeIcon id="shopping-cart" icon={faCartShopping} />
-              </div>
-            </DropdownItem>
-            <DropdownItem key="Family & Friend">
-              <div className="flex justify-between">
-                {" "}
-                Family & Friends{" "}
-                <FontAwesomeIcon
-                  id="family & friends"
-                  icon={faPeopleGroup}
-                />{" "}
-              </div>
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+        <div>
+          <Dropdown>
+            <DropdownTrigger>
+              {!modalOpen ? (
+                <Button variant="bordered" isDisabled>
+                  {type || "Select Type"}
+                </Button>
+              ) : (
+                <Button variant="bordered">{type || "Select Type"}</Button>
+              )}
+            </DropdownTrigger>
+            <DropdownMenu
+              aria-label="Static Actions"
+              onAction={handleSelectType}>
+              <DropdownItem key="F&B">
+                <div className="flex justify-between">
+                  <p>F&B</p> <FontAwesomeIcon id="F&B" icon={faBurger} />
+                </div>
+              </DropdownItem>
+              <DropdownItem key="Shopping">
+                <div className="flex justify-between">
+                  {" "}
+                  Shopping{" "}
+                  <FontAwesomeIcon id="shopping-cart" icon={faCartShopping} />
+                </div>
+              </DropdownItem>
+              <DropdownItem key="Family & Friend">
+                <div className="flex justify-between">
+                  {" "}
+                  Family & Friends{" "}
+                  <FontAwesomeIcon
+                    id="family & friends"
+                    icon={faPeopleGroup}
+                  />{" "}
+                </div>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+
         <br />
         <Button
           color="default"
