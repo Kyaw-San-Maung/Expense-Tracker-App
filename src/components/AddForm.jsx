@@ -20,9 +20,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Successmodal from "./Success-modal";
 
 const AddForm = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Testing");
   const [amount, setAmount] = useState("");
-  const [type, setType] = useState();
+  const [type, setType] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -58,7 +58,7 @@ const AddForm = () => {
   };
 
   const handleSubmit = () => {
-    if (title == "" || amount == "" || type) {
+    if (title == "" || amount == "" || type == "") {
       const notify = () => toast("Please fill the data!");
       notify();
       return;
@@ -68,13 +68,15 @@ const AddForm = () => {
       amount,
       type,
     };
+    console.log(data);
+
     setModalOpen(true);
     dispatch(addExpense(data));
   };
 
   return (
     <div className="m-auto w-1/2 mt-3">
-      <Successmodal />
+      <Successmodal title={title} modalOpen={modalOpen} total={amount} />
       <ToastContainer
         closeOnClick
         position="bottom-left"
@@ -97,15 +99,16 @@ const AddForm = () => {
           className="mb-3"
           onChange={(e) => handleAmount(e)}
         />
+        {/* Dropdown List will be here */}
         <div>
           <Dropdown>
             <DropdownTrigger>
               {!modalOpen ? (
+                <Button variant="bordered">{type || "Select Type"}</Button>
+              ) : (
                 <Button variant="bordered" isDisabled>
                   {type || "Select Type"}
                 </Button>
-              ) : (
-                <Button variant="bordered">{type || "Select Type"}</Button>
               )}
             </DropdownTrigger>
             <DropdownMenu
