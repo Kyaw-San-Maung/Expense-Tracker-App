@@ -20,7 +20,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Successmodal from "./Success-modal";
 
 const AddForm = () => {
-  const [title, setTitle] = useState("Testing");
+  const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -68,6 +68,7 @@ const AddForm = () => {
       amount,
       type,
     };
+
     console.log(data);
 
     setModalOpen(true);
@@ -75,7 +76,7 @@ const AddForm = () => {
   };
 
   return (
-    <div className="m-auto w-1/2 mt-3">
+    <div className="m-auto w-1/2 mt-3 ">
       <Successmodal title={title} modalOpen={modalOpen} total={amount} />
       <ToastContainer
         closeOnClick
@@ -83,7 +84,7 @@ const AddForm = () => {
         autoClose={1500}
         pauseOnHover={false}
       />
-      <div className="p-4 mt-6 border">
+      <div className="p-6 mt-6 shadow-xl">
         <Input
           size="sm"
           label="Title"
@@ -140,7 +141,6 @@ const AddForm = () => {
           </Dropdown>
         </div>
 
-        <br />
         <Button
           color="default"
           variant="ghost"
