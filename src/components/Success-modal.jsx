@@ -36,7 +36,7 @@ const Successmodal = ({ title, modalOpen, total }) => {
           Total:{" "}
           <span className="font-semibold text-gray-900">{total} Kyats</span>
         </p>
-        <Link href="./">
+        <Link href="/">
           <Button
             color="default"
             variant="ghost"

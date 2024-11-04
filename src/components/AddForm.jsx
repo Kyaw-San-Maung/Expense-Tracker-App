@@ -69,10 +69,8 @@ const AddForm = () => {
       type,
     };
 
-    console.log(data);
-
-    setModalOpen(true);
     dispatch(addExpense(data));
+    setModalOpen(true);
   };
 
   return (

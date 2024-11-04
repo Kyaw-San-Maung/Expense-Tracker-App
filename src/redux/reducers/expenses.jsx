@@ -5,6 +5,8 @@ const initialState = {
 };
 
 export const expenseReducer = (state = initialState, action) => {
+  console.log(action.type, "this is = ", action.data);
+
   switch (action.type) {
     case ADD_EXPENSE: {
       return {
