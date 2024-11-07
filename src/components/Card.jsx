@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux";
+
 const Card = () => {
+  const expenses = useSelector((state) => state.expenses);
+  console.log("Expense List from Redux:", expenses); // Check if updates
+
   return (
     <div>
-      <h3>this is card.</h3>
+      <h2>Expense List</h2>
     </div>
   );
 };

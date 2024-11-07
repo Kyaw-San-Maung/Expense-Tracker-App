@@ -58,24 +58,25 @@ const AddForm = () => {
   };
 
   const handleSubmit = () => {
-    if (title == "" || amount == "" || type == "") {
-      const notify = () => toast("Please fill the data!");
-      notify();
+    if (title === "" || amount === "" || type === "") {
+      toast("Please fill the data!");
       return;
     }
+
     const data = {
       title,
       amount,
       type,
+      createdAt: new Date(),
     };
 
     dispatch(addExpense(data));
+    console.log("Data dispatched to Redux store: ", data);
     setModalOpen(true);
   };
 
   return (
     <div className="m-auto w-1/2 mt-3 ">
-      <Successmodal title={title} modalOpen={modalOpen} total={amount} />
       <ToastContainer
         closeOnClick
         position="bottom-left"
@@ -113,19 +114,19 @@ const AddForm = () => {
             <DropdownMenu
               aria-label="Static Actions"
               onAction={handleSelectType}>
-              <DropdownItem key="F&B">
+              <DropdownItem key="F&B" textValue="F&B">
                 <div className="flex justify-between">
                   <p>F&B</p> <FontAwesomeIcon id="F&B" icon={faBurger} />
                 </div>
               </DropdownItem>
-              <DropdownItem key="Shopping">
+              <DropdownItem key="Shopping" textValue="Shopping">
                 <div className="flex justify-between">
                   {" "}
                   Shopping{" "}
                   <FontAwesomeIcon id="shopping-cart" icon={faCartShopping} />
                 </div>
               </DropdownItem>
-              <DropdownItem key="Family & Friend">
+              <DropdownItem key="Family & Friend" textValue="Family & Friend">
                 <div className="flex justify-between">
                   {" "}
                   Family & Friends{" "}
@@ -147,6 +148,7 @@ const AddForm = () => {
           Add
         </Button>
       </div>
+      <Successmodal title={title} modalOpen={modalOpen} total={amount} />
     </div>
   );
 };

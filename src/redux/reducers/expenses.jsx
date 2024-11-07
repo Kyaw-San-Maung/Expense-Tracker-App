@@ -5,15 +5,18 @@ const initialState = {
 };
 
 export const expenseReducer = (state = initialState, action) => {
-  console.log(action.type, "this is = ", action.data);
+  console.log("Reducer called - Action:", action); // Check action structure
 
   switch (action.type) {
     case ADD_EXPENSE: {
-      return {
+      const newState = {
         ...state,
         expenseList: [...state.expenseList, action.data],
       };
+      console.log("New State:", newState); // Check if expenseList updates
+      return newState;
     }
+
     default:
       return state;
   }

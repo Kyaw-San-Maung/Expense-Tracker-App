@@ -1,8 +1,9 @@
 import { faSign } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 const Successmodal = ({ title, modalOpen, total }) => {
   const customStyles = {
@@ -36,7 +37,7 @@ const Successmodal = ({ title, modalOpen, total }) => {
           Total:{" "}
           <span className="font-semibold text-gray-900">{total} Kyats</span>
         </p>
-        <Link href="/">
+        <Link to="/">
           <Button
             color="default"
             variant="ghost"
