@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import CardFromStore from "./Card";
+
+import Card from "./Card";
 
 const ExpenseList = () => {
   const expense = useSelector((state) => state.expenses);
@@ -8,7 +9,7 @@ const ExpenseList = () => {
   return (
     <div className="flex justify-between m-auto w-1/2 mt-3">
       <div>
-        <CardFromStore />
+        <Card />
       </div>
     </div>
   );
