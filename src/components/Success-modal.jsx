@@ -37,16 +37,17 @@ const Successmodal = ({ title, modalOpen, total }) => {
           Total:{" "}
           <span className="font-semibold text-gray-900">{total} Kyats</span>
         </p>
-        <Link to="/">
-          <Button
-            color="default"
-            variant="ghost"
-            size="lg"
-            className="mt-4"
-            endContent={<FontAwesomeIcon icon={faHome} id="home icon" />}>
-            Home
-          </Button>
-        </Link>
+
+        <Button
+          as={Link}
+          to="/"
+          color="default"
+          variant="ghost"
+          size="lg"
+          className="mt-4"
+          endContent={<FontAwesomeIcon icon={faHome} id="home icon" />}>
+          Home
+        </Button>
       </div>
     </Modal>
   );
